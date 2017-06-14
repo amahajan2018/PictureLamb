@@ -50,6 +50,14 @@ public class PictureTester
     canvas.createCollage();
     canvas.explore();
   }
+ 
+  public static void testMirrorGull()
+  {
+      Picture canvas = new Picture("seagull.jpg");
+      canvas.explore();
+      canvas.mirrorGull();
+      canvas.explore();
+  }
   
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
