@@ -181,25 +181,6 @@ public void mirrorHorizontal()
     }
   }
   
-  public void mirrorGull()
-  {
-      int mirrorPoint = 345;
-      Pixel leftPixel = null;
-      Pixel rightPixel = null; 
-      int count = 0;
-      Pixel[][] pixels = this.getPixels2D();
-      
-      for (int row = 230; row < 345; row ++)
-      {
-          for (int col = 239; col < mirrorPoint; col++)
-          {
-              rightPixel = pixels[row][col];//stores right pixel      
-              leftPixel = pixels[row][mirrorPoint - col + mirrorPoint];
-              leftPixel.setColor(rightPixel.getColor());
-          }
-      }
-  }
-  
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture
