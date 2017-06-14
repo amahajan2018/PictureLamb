@@ -248,7 +248,7 @@ public void mirrorHorizontal()
     }   
   }
   
-  public static void copyTwo(Picture formPic, int startRow, int endRow, int startCol, int endCol)
+  public void copyTwo(Picture fromPic, int startRow, int endRow, int startCol, int endCol)
   {
      Pixel fromPixel = null;
     Pixel toPixel = null;
