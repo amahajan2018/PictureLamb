@@ -26,6 +26,14 @@ public class PictureTester
     caterpillar.explore();
   }
   
+  public static void testMirrorVerticalRightToLeft()
+  {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorVerticalRightToLeft();
+    caterpillar.explore();
+  }
+  
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -41,6 +49,14 @@ public class PictureTester
     Picture canvas = new Picture("640x480.jpg");
     canvas.createCollage();
     canvas.explore();
+  }
+ 
+  public static void testMirrorGull()
+  {
+      Picture canvas = new Picture("seagull.jpg");
+      canvas.explore();
+      canvas.mirrorGull();
+      canvas.explore();
   }
   
   /** Method to test edgeDetection */
