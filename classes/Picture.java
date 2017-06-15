@@ -93,11 +93,12 @@ public class Picture extends SimplePicture
     {
       for (Pixel pixelObj : rowArray)
       {
-        pixelObj.setBlue(0);
+        pixelObj.setBlue(0); 
       }
     }
   }
   
+  /*THis sets red and green values of the pixel to zero leaving only the blue*/
   public void keepOnlyBlue()
   {
        Pixel[][] pixels = this.getPixels2D();
@@ -137,6 +138,9 @@ public class Picture extends SimplePicture
     }
 }
 
+
+/* Reflect the picture over the x-axis*/
+
 public void mirrorVerticalRightToLeft()
   {
       Pixel[][] pixels = this.getPixels2D();
@@ -166,7 +170,7 @@ public void mirrorHorizontal()
       for (int row = 0; row < width/2; row++)
       {
         leftPixel = pixels[row][col];
-        rightPixel = pixels[row][width - 1 - col];
+        rightPixel = pixels[row][(length - 1) - col];
         rightPixel.setColor(leftPixel.getColor());
       }
     }
@@ -198,6 +202,44 @@ public void mirrorHorizontal()
     }
   }
   
+
+ /* Mirror the arms of the snowman on the left and right so that it has 4 arms*/
+ public void mirrorArms()
+  {
+    int mirrorPoint = 193;
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+
+    // Mirror the Left arm
+    for (int row = 160; row < mirrorPoint; row++)
+    {
+      // loop from 13 to just before the mirror point
+      for (int col = 101; col < 168; col++)
+      {
+        topPixel = pixels[row][col]; //Store current pixel   
+        bottomPixel = pixels[mirrorPoint - row + mirrorPoint][col]; //Find pos on the other half of the frame
+        bottomPixel.setColor(topPixel.getColor()); //Make the color of the pixel the same as the top
+      }
+    }
+    
+    int mirrorPointTwo = 198;
+    Pixel topPixelTwo = null;
+    Pixel bottomPixelTwo = null;
+    
+    //Mirror the right arm
+    for (int row = 169; row < mirrorPoint2; row++)
+    {
+      // loop from 13 to just before the mirror point
+      for (int col = 27; col < 293; col++)
+      {
+        topPixel2 = pixels[row][col]; //Store current pixel     
+        bottomPixel2 = pixels[mirrorPointTwo - row + mirrorPointTwo][col]; //Find pos on the other half of the frame
+        bottomPixel2.setColor(topPixelTwo.getColor()); //Make the colors of the pixel
+      }
+    }
+  }
+
   public void mirrorGull()
   {
       int mirrorPoint = 345;
@@ -217,6 +259,7 @@ public void mirrorHorizontal()
       }
   }
   
+
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture
@@ -315,7 +358,8 @@ public void mirrorHorizontal()
     }
   }
   
-  public void negate()
+/*Sets all RGB colors to 255 minus the value making the colors opposite*/
+public void negate()
   {
        Pixel[][] pixels = this.getPixels2D();
        for (Pixel[] rowArray : pixels)
